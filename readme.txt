@@ -1,0 +1,1 @@
+Create your appid at https://home.openweathermap.org/ once after creating an account. Add this appid into the 'index.js'. Let me know if anything need to be enhanced or corrected. Cheers!

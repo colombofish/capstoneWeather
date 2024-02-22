@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <h1>UK Weather Report</h1>
+  <div class="city">
+    <form action="/submit" method="POST">
+      <select name="city" id="form-select">
+        <option value="">--------</option>
+        <option value="Luton">Luton</option>
+        <option value="London">London</option>
+        <option value="Watford">Watford</option>
+        <option value="Belfast">Belfast</option>
+        <option value="Glasgow">Glasgow</option>
+        <option value="Manchester">Manchester</option>
+        <option value="Birmingham">Birmingham</option>
+      </select>
+      <button type="submit" class="submit">Go</button>
+    </form>
+  </div>
+  <% if (locals.content) { %>
+    <div class="results">
+      <% const imgURL=`https://openweathermap.org/img/wn/${content.icon}@2x.png` %>
+        <!-- capturing the image icon into imgURL, which is displayed below -->
+        <div class="city-name">
+          <span class="city-name-display">
+            <%= content.city %>
+          </span>
+          <img src=<%=imgURL %> alt="" class="city-name">
+        </div>
+        <p>Condition: <%= content.condition %>
+        </p>
+        <p>Actual temperature: <%= content.temp %> &deg;C
+        </p>
+        <p>Feels like: <%= content.feelsLike %> &deg;C
+        </p>
+        <p>Pressure: <%= content.pressure %>
+        </p>
+        <p>Wind speed: <%= content.speed %>
+        </p>
+    </div>
+    <% } %>
+      <script src="scripts/script.js"></script>
+</body>
+
+</html>
