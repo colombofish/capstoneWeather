@@ -26,28 +26,33 @@
     </form>
   </div>
   <% if (locals.content) { %>
-    <div class="results">
-      <% const imgURL=`https://openweathermap.org/img/wn/${content.icon}@2x.png` %>
-        <!-- capturing the image icon into imgURL, which is displayed below -->
-        <div class="city-name">
-          <span class="city-name-display">
-            <%= content.city %>
-          </span>
-          <img src=<%=imgURL %> alt="" class="city-name">
-        </div>
-        <p>Condition: <%= content.condition %>
-        </p>
-        <p>Actual temperature: <%= content.temp %> &deg;C
-        </p>
-        <p>Feels like: <%= content.feelsLike %> &deg;C
-        </p>
-        <p>Pressure: <%= content.pressure %>
-        </p>
-        <p>Wind speed: <%= content.speed %>
-        </p>
-    </div>
-    <% } %>
-      <script src="scripts/script.js"></script>
+
+    <%# console.log(testContent) %>
+      <div class="results">
+        <% const imgURL=`https://openweathermap.org/img/wn/${content.icon}@2x.png` %>
+          <!-- capturing the image icon into imgURL, which is displayed below -->
+          <div class="city-name">
+            <span class="city-name-display">
+              <%= content.city %>
+                <script> var cityName = '<%- content.city %>';
+                  console.log(cityName);
+                </script>
+            </span>
+            <img src="<%= imgURL %>" alt="" class="city-name">
+          </div>
+          <p>Condition: <%= content.condition %>
+          </p>
+          <p>Actual temperature: <%= content.temp %> &deg;C
+          </p>
+          <p>Feels like: <%= content.feelsLike %> &deg;C
+          </p>
+          <p>Pressure: <%= content.pressure %>
+          </p>
+          <p>Wind speed: <%= content.speed %>
+          </p>
+      </div>
+      <% } %>
+        <script src="scripts/script.js"></script>
 </body>
 
 </html>

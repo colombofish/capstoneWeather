@@ -2,7 +2,7 @@ import express from "express"
 import bodyParser from "body-parser"
 import axios from "axios"
 
-const appid = ""; //use your own appid
+const appid = "ac9c13b0ca60b82aa92b84ef2aa9c5e2"; //use your own appid
 const app = express();
 const port = 3000;
 app.use(express.static("public"));
@@ -13,13 +13,13 @@ app.get("/", (req, res) => {
 })
 
 app.post("/submit", async (req, res) => {
-  console.log(req.body.city);
+  // console.log(req.body.city);
   try {
     let url = `https://api.openweathermap.org/geo/1.0/direct?q=${req.body.city}, GBR&limit=1`;
     // Above API URL is to get the longitude and latitude based on the city name retrieved from the web form
     const cityName = req.body.city; // this to pass to the weatherReport
     const response = await axios.get(url, { params: { appid: appid } });
-    console.log(response.data[0].name, response.data[0].lat, response.data[0].lon);
+    // console.log(response.data[0].name, response.data[0].lat, response.data[0].lon);
     const response2 = await axios
       .get(`https://api.openweathermap.org/data/2.5/weather?lat=${response.data[0].lat}&lon=${response.data[0].lon}&units=metric`,
         { params: { appid: appid } });
