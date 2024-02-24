@@ -2,7 +2,7 @@ import express from "express"
 import bodyParser from "body-parser"
 import axios from "axios"
 
-const appid = "ac9c13b0ca60b82aa92b84ef2aa9c5e2"; //use your own appid
+const appid = ""; //use your own appid
 const app = express();
 const port = 3000;
 app.use(express.static("public"));
